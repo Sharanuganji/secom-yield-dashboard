@@ -34,7 +34,7 @@ This project builds an end-to-end pipeline that does all three, deployed as an i
 ## Results
 
 | Metric | Value |
-
+|---|---|
 | CUSUM signals (X163) | 151 |
 | Western Electric violations | 216 (mostly Rule 4: sustained drift) |
 | RF PR-AUC | **0.236** (vs. 0.066 baseline → 3.5× improvement) |
