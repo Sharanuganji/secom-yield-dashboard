@@ -47,7 +47,7 @@ The low absolute PR-AUC is expected — published papers on SECOM report 0.2–0
 
 Interactive Streamlit app: select a sensor, view SPC charts, capability indices, and excursion flags.
 
-**[Live Demo](https://Sharanuganji.streamlit.app/secom-yield-dashboard)** ← replace with your deployed URL
+**[Live Demo](https://sharanuganji-secom-yield-dashboard.streamlit.app)** ← replace with your deployed URL
 
 ## Project Structure
    
