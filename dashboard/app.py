@@ -36,7 +36,7 @@ st.sidebar.header("Controls")
 sensor = st.sidebar.selectbox("Select Sensor", top_sensors)
 st.sidebar.markdown(f"**Mean:** {df[sensor].mean():.2f}")
 st.sidebar.markdown(f"**Std:** {df[sensor].std():.2f}")
-st.sidebar.markdown(f"**Fail rate:** {df['Label'].mean():.2%}")
+st.sidebar.markdown(f"**Fail rate:** {(df['Label'] == 1).mean():.2%}")   
 
 tab = st.sidebar.radio("View", ["SPC Charts", "Process Capability", "Excursion Detection", "Yield Summary"])
 
@@ -147,4 +147,3 @@ elif tab == "Yield Summary":
         "Model": ["Random Forest (SMOTE)", "Logistic Regression", "Baseline (all-pass)"],
         "PR-AUC": [0.236, 0.177, 0.066],
     }))   
-    
