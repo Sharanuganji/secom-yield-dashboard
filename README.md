@@ -51,3 +51,37 @@ Interactive Streamlit app: select a sensor, view SPC charts, capability indices,
 
 ## Project Structure
    
+secom-yield-dashboard/
+├── notebooks/
+│ ├── 01_eda_cleaning.ipynb
+│ ├── 02_spc_control_charts.ipynb
+│ ├── 03_process_capability.ipynb
+│ ├── 04_yield_prediction.ipynb
+│ └── 05_excursion_detection.ipynb
+├── src/
+│ ├── spc.py # I-MR, CUSUM, Western Electric rules
+│ ├── capability.py # Cp/Cpk calculator + plots
+│ ├── yield_model.py # RF/LR pipeline with SMOTE
+│ └── excursion.py # Rolling z-score anomaly detection
+├── dashboard/
+│ └── app.py # Streamlit dashboard
+├── data/ # (gitignored)
+├── requirements.txt
+└── README.md
+
+
+## What I Learned
+
+- SPC charts are the **first line of defense** in a fab — they flag drift before yield drops
+- Western Electric Rule 4 (8 consecutive same side) dominated violations → the process had **sustained bias**, not random spikes
+- With 590 features and only 104 fails, feature selection matters more than model choice
+- PR-AUC is the correct metric for rare-event prediction; accuracy is misleading
+- A Streamlit dashboard makes the analysis **actionable** — a process engineer can pick any sensor and see its control state in 2 clicks
+
+## Setup
+
+```bash
+git clone https://github.com/Sharanuganji/secom-yield-dashboard.git
+cd secom-yield-dashboard
+conda env create -f environment.yml   # or: pip install -r requirements.txt
+streamlit run dashboard/app.py   
